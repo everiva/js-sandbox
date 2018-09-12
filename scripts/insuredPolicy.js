@@ -1,22 +1,28 @@
 var policy = {
     policyHolder: {
-        name: 'Vera',
-        age: Math.ceil(Math.random() * 100)
+        name: 'Alex',
+        age: 10,
     },
-    coverage: {
+    policyProgramm: {
         basicTariff: Math.random() / 1000,
-        insuredSum: Math.random() * 100000
+        sumInsured: Math.round(Math.random() * 1000)
     },
-
     calculatePremium: function () {
-        var p = policy.coverage;
-        return Math.ceil(p.basicTariff * p.insuredSum);
+        var p = policy.policyProgramm;
+        var premium = p.basicTariff * p.sumInsured;
+        return premium;
     },
     printPolicy: function () {
         var ph = policy.policyHolder;
-        var output = 'Policyholder (' + ph.name + ', ' + ph.age + ' years old) has a premium equals to ' + policy.calculatePremium() + ' USD.';
-        console.log(output);
+        var output = ph.name + ' is ' + ph.age + ' should paid ' + policy.calculatePremium();
+        //console.log(output);
+        function p() {
+            console.log(this.output)
+        }
+        p();
     }
 }
 
 policy.printPolicy();
+
+//console.log(policy.printPolicy());
